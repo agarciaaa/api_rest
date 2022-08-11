@@ -15,9 +15,18 @@ Including another URLconf
 """
 from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path 
+from django.urls import path
+from rest_framework.routers import DefaultRouter
+from producto.views import ProductoViewSet
 
-urlpatterns = [
+
+router = DefaultRouter()
+router.register(r'productos', ProductoViewSet)
+
+urlpatterns = router.urls
+
+
+urlpatterns += [
     path('admin/', admin.site.urls),
     
 ]
