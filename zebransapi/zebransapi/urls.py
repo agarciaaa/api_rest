@@ -18,6 +18,7 @@ from django.contrib import admin
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 from producto.views import ProductoViewSet
+from producto.views import UserViewSet
 
 """from rest_framework import permissions
 from drf_yasg.views import get_schema_view
@@ -26,6 +27,7 @@ from drf_yasg import openapi"""
 
 router = DefaultRouter()
 router.register("producto", ProductoViewSet)
+router.register("usuarios", UserViewSet)
 
 urlpatterns = router.urls
 
