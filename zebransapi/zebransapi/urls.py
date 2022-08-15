@@ -15,23 +15,29 @@ Including another URLconf
 """
 from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
 from rest_framework.routers import DefaultRouter
 from producto.views import ProductoViewSet
+from producto.views import UserViewSet
 
-"""from rest_framework import permissions
+
+
+"""
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi"""
 
 
 router = DefaultRouter()
-router.register(r'productos', ProductoViewSet)
+router.register("producto", ProductoViewSet)
+router.register("usuarios", UserViewSet)
 
 urlpatterns = router.urls
 
 
 urlpatterns += [
     path('admin/', admin.site.urls),
+    path('zebransapi/', include('rest_framework.urls')),
     
 ]
 
