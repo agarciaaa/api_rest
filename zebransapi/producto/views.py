@@ -9,9 +9,5 @@ from .models import Producto
 
 
 class ProductoViewSet(viewsets.ModelViewSet):
-    serializer_class = ProductoSerializer
-    queryset = Producto.objects.all
-    
-    
-
-
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer 

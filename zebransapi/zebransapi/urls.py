@@ -25,7 +25,7 @@ from drf_yasg import openapi"""
 
 
 router = DefaultRouter()
-router.register(r'productos', ProductoViewSet)
+router.register("producto", ProductoViewSet)
 
 urlpatterns = router.urls
 
