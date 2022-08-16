@@ -15,18 +15,49 @@ Including another URLconf
 """
 from xml.etree.ElementInclude import include
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+from django.conf import settings
 from rest_framework.routers import DefaultRouter
 from producto.views import ProductoViewSet
+from producto.views import UserViewSet
+
+
+
+"""
+from drf_yasg.views import get_schema_view
+from drf_yasg import openapi"""
 
 
 router = DefaultRouter()
-router.register(r'productos', ProductoViewSet)
+router.register("producto", ProductoViewSet)
+router.register("usuarios", UserViewSet)
 
 urlpatterns = router.urls
 
 
 urlpatterns += [
     path('admin/', admin.site.urls),
+    path('zebransapi/', include('rest_framework.urls')),
     
 ]
+
+"""schema_view = get_schema_view(
+    openapi.Info(
+        title="Zebrans API",
+        default_version='v1',
+        description="Rest Api",
+        terms_of_service="https://www.google.com/policies/terms/",
+        contact=openapi.Contact(email="angel.garcia.carbajal1@gmail.com"),
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
+)"""
+
+"""urlpatterns = [
+    url('playground/', schema_view.with_ui('swagger',
+        cache_timeout=0), name='schema-swagger-ui'),
+    url('docs/', schema_view.with_ui('redoc',
+    cache_timeout=0), name='schema-redoc'),
+    
+]"""
