@@ -48,9 +48,7 @@ class ProductoViewSet(viewsets.ModelViewSet):
         
         return JsonResponse(serializer.data, safe=False)
 
-
-
-       
+ 
     def update(self, request, pk=None):
         try:
             producto = Producto.objects.get(pk=self.kwargs.get("pk"))
