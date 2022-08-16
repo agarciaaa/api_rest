@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
 
-
 # modelos.
 
 class UserProfile(models.Model):
@@ -21,9 +20,10 @@ class Producto(models.Model):
     Sku = models.IntegerField()
     creado = models.DateTimeField(auto_now_add=True)
     modificado = models.DateTimeField(auto_now=True)
-    count = 0
+    count = models.IntegerField(default= 0)
     
     def __str__(self):
         return self.Nombre
     
-    
+
+
